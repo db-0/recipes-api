@@ -22,7 +22,7 @@ llm = OpenAI(
 # Initialize github repo
 auth = Auth.Token(os.getenv("GITHUB_TOKEN")) if os.getenv("GITHUB_TOKEN") else None
 git = Github(auth=auth)
-repo_url = os.getenv("REPOSITORY")
+repo_url = f"https://github.com/{os.getenv("REPOSITORY")}.git"
 repo_name = repo_url.split('/')[-1].replace('.git','')
 username = repo_url.split('/')[-2]
 full_repo_name = f"{username}/{repo_name}"
